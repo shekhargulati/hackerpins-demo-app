@@ -1,0 +1,45 @@
+<div class="row story" ng-repeat="story in stories">
+    <div class="row tags">
+        <div class="pull-right">
+            <ul class="list-inline">
+                <i class="glyphicon glyphicon-tags"></i>
+                <li ng-repeat="tag in story.tags"><a class="btn" ng-href="#stories/tags/{{tag}}"><h4><span class="label label-primary">{{tag}}</span></h4></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row heading">
+        <div class="col-md-12">
+            <h2><a ng-href="{{story.url}}" target="_blank">{{story.title}}</a></h2>
+        </div>
+        <div class="col-md-3 pull-left">
+            <h4>{{story.submittedAt|date:'MMddyyyy HH mm ss'|moment}}</h4>
+        </div>
+    </div>
+    <div class="row content">
+        <div class="col-md-8">
+            <p class="lead">{{story.description}}</p>
+        </div>
+        <div class="col-md-4" ng-if="story.media.mediaUrl">
+            <a ng-href="{{story.url}}" target="_blank"><img ng-src="{{story.media.mediaUrl}}" class="img-responsive" width="75%" height="250"></a>
+        </div>
+
+    </div>
+    <div class="row social">
+        <div class="col-md-1">
+            <a class="btn" ng-href="#stories/{{story.id}}"><i class="glyphicon glyphicon-comment"></i></a>
+        </div>
+        <div class="col-md-1">
+            <a class="btn" ng-click="like(story)"><i class="glyphicon glyphicon-thumbs-up"></i> {{story.likes}}</a>
+        </div>
+        <div class="col-md-1">
+            <a class="btn" ng-click="dislike(story)"><i class="glyphicon glyphicon-thumbs-down"></i> {{story.dislikes}}</a>
+        </div>
+        <div class="col-md-1">
+            <a class="btn" target="_blank" href="https://www.facebook.com/dialog/feed?redirect_uri=http://www.hackerpins.com/&link={{story.url}}&display=popup&app_id=1462503373982129"><i class="fa fa-facebook"></i> Facebook</a>
+        </div>
+        <div class="col-md-1">
+            <a class="btn" target="_blank" href="https://twitter.com/intent/tweet?url={{story.url}}&text={{story.title}}&via=hackerpins"><i class="fa fa-twitter"></i> Twitter</a>
+        </div>
+    </div>
+    <hr>
+</div>

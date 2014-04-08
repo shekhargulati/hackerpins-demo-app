@@ -1,0 +1,42 @@
+<form class="form-horizontal" role="form" ng-submit="submitStory()">
+    <div class="form-group">
+        <label for="url" class="col-sm-2 control-label">Story Url</label>
+
+        <div class="col-sm-10">
+            <input type="url" class="form-control" id="url" name="url" placeholder="Story Url" ng-model="story.url" ng-blur="fetchUrlDetails()" required title="Enter Story Url">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="title" class="col-sm-2 control-label">Story Title</label>
+
+        <div class="col-sm-10">
+            <i ng-show="isFetchingDetails" class="fa {{spinner}}"></i>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Story Title" ng-model="story.title" required title="Enter Story Title" ng-disabled="isFetchingDetails">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="description" class="col-sm-2 control-label">Story Description</label>
+
+        <div class="col-sm-10">
+            <i ng-show="isFetchingDetails" class="fa {{spinner}}"></i>
+            <textarea id="description" name="description" class="form-control" rows="3"
+                      placeholder="Describe story" ng-model="story.description" required title="Enter Story Description" ng-disabled="isFetchingDetails"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="tags" class="col-sm-2 control-label">Story Tags</label>
+
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="tags" name="tags" placeholder="Comma seperated list of tags" ng-model="story.tags" ng-list>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-info">Submit Story</button>
+        </div>
+    </div>
+</form>
