@@ -4,14 +4,11 @@
              version="2.1">
     <persistence-unit name="hackerpinsPU" transaction-type="JTA">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <jta-data-source>java:jboss/datasources/MySQLDS</jta-data-source>
+        <jta-data-source>java:jboss/datasources/PostgreSQLDS</jta-data-source>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
 
         <properties>
-            <property name="javax.persistence.schema-generation.database.action" value="none"/>
-            <property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>
-            <property name="javax.persistence.schema-generation.scripts.create-target" value="sql/create.sql"/>
-            <property name="javax.persistence.schema-generation.scripts.drop-target" value="sql/drop.sql"/>
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
         </properties>
     </persistence-unit>
 </persistence>
